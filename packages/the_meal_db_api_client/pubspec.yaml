@@ -1,0 +1,23 @@
+name: the_meal_db_api_client
+description: meal_db_api
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+  flutter: 3.3.7
+
+dependencies:
+  build_runner: ^2.3.0
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  http: ^0.13.5
+  json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  very_good_analysis: ^3.1.0
