@@ -9,14 +9,17 @@ environment:
 
 dependencies:
   bloc: ^8.1.0
-  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
   flutter_localizations:
     sdk: flutter
-  http: ^0.13.5
+  http: ^0.13.4
   intl: ^0.17.0
+  receipe_repository:
+    path: packages/recipe_repository
+  the_meal_db_api_client:
+    path: packages/the_meal_db_api_client  
 
 dev_dependencies:
   bloc_test: ^9.1.0

@@ -10,6 +10,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:receipe_repository/recipe_repository.dart';
+import 'package:the_meal_db_api_client/the_meal_db_api_client.dart';
+import 'package:http/http.dart' as http;
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -25,15 +28,21 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+Future<void> bootstrap(
+  FutureOr<Widget> Function(
+    RecipeRepository recipeRepository,
+  )
+      builder,
+) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
-
+  final mealDbApiClient = TheMealDbApiClient(client: http.Client());
+  final recipesRepository = RecipeRepository(mealDbApiClient);
   Bloc.observer = AppBlocObserver();
 
   await runZonedGuarded(
-    () async => runApp(await builder()),
+    () async => runApp(await builder(recipesRepository)),
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
   );
 }

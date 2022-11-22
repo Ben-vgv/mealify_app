@@ -5,7 +5,7 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-/// meal_db_api
-library the_meal_db_api_client;
-export 'src/models/models.dart';
-export 'src/the_meal_db_api_client.dart';
+/// recepie repo
+library recipe_repository;
+
+export 'src/recipe_repository.dart';

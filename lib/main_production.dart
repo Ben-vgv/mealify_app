@@ -7,7 +7,12 @@
 
 import 'package:mealify_app/app/app.dart';
 import 'package:mealify_app/bootstrap.dart';
+import 'package:receipe_repository/recipe_repository.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(
+    (RecipeRepository recipeRepository) => App(
+      recipeRepository: recipeRepository,
+    ),
+  );
 }
